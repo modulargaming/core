@@ -198,7 +198,10 @@ abstract class MG_Abstract_View {
 	 */
 	public function debug_toolbar()
 	{
-		return DebugToolbar::render();
+		if (Kohana::$environment === Kohana::DEVELOPMENT AND class_exists('DebugToolbar'))
+		{
+			return DebugToolbar::render();
+		}
 	}
 
 	/**
