@@ -21,11 +21,11 @@ class MG_Task_Assets_Clear extends Minion_Task {
 		$dir = new RecursiveDirectoryIterator(DOCROOT.'assets');
 		$files = new RecursiveIteratorIterator($dir, RecursiveIteratorIterator::CHILD_FIRST);
 
-		foreach($files as $file)
+		foreach ($files as $file)
 		{
 			$filename = $file->getFilename();
 
-			if ($filename === '.' || $filename === '..')
+			if ($filename === '.' OR $filename === '..')
 			{
 				continue;
 			}

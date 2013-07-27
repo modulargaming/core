@@ -41,7 +41,7 @@ abstract class MG_Abstract_View {
 		$this->_auth = Auth::instance();
 		$this->_user = Auth::instance()->get_user();
 
-		$this->_assets = new Assets();
+		$this->_assets = new Assets;
 		$this->_assets->group($this->_assets_group);
 	}
 
@@ -116,7 +116,8 @@ abstract class MG_Abstract_View {
 	 *
 	 * @return mixed
 	 */
-	public function post() {
+	public function post()
+	{
 		return Request::current()->post();
 	}
 
