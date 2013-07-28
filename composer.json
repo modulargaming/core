@@ -9,7 +9,7 @@
 	"homepage": "https://github.com/modulargaming/payment",
 
 	"require": {
-		"php": ">=5.3.2",
-		"modulargaming/installer": "*"
+		"php": ">=5.3.3",
+		"modulargaming/installer": "~1.0"
 	}
 }
