@@ -1,0 +1,55 @@
+<h2 class="page-title">Step 2 - Database</h2>
+
+<div class="alert alert-info">
+	<strong>Seems like we have problem connecting to the database!</strong><br />
+	{{database_error}}
+</div>
+
+<p>
+	You have 2 ways of solving this, you may either manually edit
+	<code>/application/config/database.php</code> and reload this page.
+</p>
+<p>
+	Or you may use the form below to generate the configuration file and replace the current.
+</p>
+
+{{#is_writable}}
+	<div class="alert alert-success">
+		The file <code>/application/config/database.php</code> is writable!
+	</div>
+{{/is_writable}}
+{{^is_writable}}
+	<div class="alert alert-error">
+		The file <code>/application/config/database.php</code> is <strong>NOT</strong> writable!
+		You can either chmod it 777 and <a href="">try again</a>, or go right ahead and you will be prompted to download the file.
+		Please note that you need to manually <a href="">reload</a> the page once you are done.
+	</div>
+{{/is_writable}}
+
+<form method="post" class="install-block">
+	{{#form}}
+		<label for="hostname">
+			Hostname (if unsure leave to localhost)
+		</label>
+		<input id="hostname" name="hostname" type="text" value="{{hostname}}" />
+
+		<label for="database">
+			Database (the name of the database, must exist)
+		</label>
+		<input id="database" name="database" type="text" value="{{database}}" />
+
+		<label for="username">
+			Database username
+		</label>
+		<input id="username" name="username" type="text" value="{{username}}" />
+
+		<label for="password">
+			Password
+		</label>
+		<input id="password" name="password" type="text" value="{{password}}" />
+	{{/form}}
+
+	<div class="form-actions">
+		<input type="submit" value="Validate and save" class="btn btn-primary" />
+	</div>
+</form>
