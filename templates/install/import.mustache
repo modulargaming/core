@@ -1,0 +1,24 @@
+<h2 class="page-title">Step 3 - Import database</h2>
+
+{{#imported}}
+	<div class="alert alert-success">
+		Import completed!
+	</div>
+
+	<p>
+		Delete the file <code>/install.php</code> and reload the page to enter your new Modular Gaming site.
+	</p>
+	<p>
+		Note that in order to have admin access you need to give your new user the role admin. This can either be done in the
+		database, table <code>roles_users</code> or with the minion task, <code>php ./minion user:promote --username=user</code>.
+	</p>
+
+{{/imported}}
+{{^imported}}
+	<p>We will now run the database migration script.</p>
+	<p>Just a heads up, this can also be run later from the terminal with <code>$ ./minion migrations::run</code> (after removing install.php). Should be run after upgrading a modular gaming module.</p>
+
+	<form method="post">
+		<input type="submit" class="btn btn-primary" value="Import database!"/>
+	</form>
+{{/imported}}
