@@ -35,6 +35,11 @@ abstract class MG_Abstract_View {
 	 */
 	protected $_assets;
 
+	/**
+	 * @var array Config array sent to javascript.
+	 */
+	protected $_config;
+
 
 	public function __construct()
 	{
@@ -43,6 +48,8 @@ abstract class MG_Abstract_View {
 
 		$this->_assets = new Assets;
 		$this->_assets->group($this->_assets_group);
+
+		$this->set_config_variable('base_url', $this->base_url());
 	}
 
 	/**
@@ -203,6 +210,16 @@ abstract class MG_Abstract_View {
 		{
 			return DebugToolbar::render();
 		}
+	}
+
+	public function set_config_variable($key, $value)
+	{
+		$this->_config[$key] = $value;
+	}
+
+	public function config()
+	{
+		return json_encode($this->_config);
 	}
 
 	/**
